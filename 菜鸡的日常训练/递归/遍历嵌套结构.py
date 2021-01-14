@@ -13,7 +13,7 @@ def reverse_list(alist):
         if type(alist[0]) == list:  # alist可能是个列表套列表
             reverse_list(alist[0])
         else:
-            print(alist[0], end="   ")
+            print(alist[0], end="\t")
 
 if __name__ == '__main__':
 
