@@ -20,8 +20,14 @@ def PowerSetsBinary(items):
 ['a', 'b', 'c']
 """
 
-
 # 方式2
+"""
+实现思路:
+    利用递归进层
+    为什么
+"""
+
+
 def PowerSetsRecursive(items):
     """Use recursive call to return all subsets of items, include empty set"""
 
@@ -43,7 +49,15 @@ def PowerSetsRecursive(items):
         subsets.append(next_subset)
     print(subsets)
     return subsets  # 递归退层后都要  返回递归进层的subsets
+
+
 # 方式3
+"""
+实现思路:
+    将每个子集和新元素结合
+"""
+
+
 def PowerSetsRecursive2(items):
     # items need to depend on the former ones , then form into new results
     # the power set of the  set <集合的幂集> has one element at least
@@ -55,6 +69,5 @@ def PowerSetsRecursive2(items):
 
 
 if __name__ == '__main__':
-
     PowerSetsRecursive([1, 2, 3])
-    PowerSetsRecursive2([1, 2, 3])
+    # PowerSetsRecursive2([1, 2, 3])
