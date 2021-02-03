@@ -15,6 +15,6 @@ class LoguruUtil():
 
 
 if __name__ == '__main__':
-    PROJECT_BASE_DIR = '.'
+    PROJECT_BASE_DIR = ''
     LoguruUtil(PROJECT_BASE_DIR, 'aaa_cluster.log').loguru_main()
     logger.info('1342')

@@ -1,28 +1,21 @@
 def merge_sort(L):
-    '''使用 '递归(recursive)' 的方式，实现归并排序算法
-    自顶向下(Top Down)：
-    1. 递归 '拆分(Splitting)' 成左右两个子序列，首先递归 left = merge_sort(L[:mid])
-    不断递归左边，当某一层递归中，左子序列只有一个元素时，向上返回上一层调用，即 left 获取到返回值；
-    然后，在上一层调用中，递归 right = merge_sort(L[mid:])
-    当右子序列只有一个元素时，向上返回，right 获取到返回值
-    2. 当 left 和 right 都被赋值为单个元素的子序列后，再执行 '归并(Merging)' 操作，返回排好序的序列给上一层函数
-    即上一层函数的 left 或 right 被赋值为递归函数的返回值
+    '''
 
-    不懂的，看我的博客图解: http://www.madmalls.com/blog/post/merge-sort-algorithm/
+
     '''
     n = len(L)
-    # 两个作用：
-    # 1. 客户端传入原始序列只有一个元素或为空时，不用排序，直接返回
-    # 2. 递归的退出条件。如果传入的序列元素个数为1时，不再拆分，返回
+    # 客户端传入原始序列只有一个元素或为空时，不用排序，直接返回
     if n <= 1:
         return L
 
     # 将传入的序列拆分成左右两个子序列，再分别递归
     mid = n // 2
-    left = merge_sort(L[:mid])  # 特别注意：先递归左边的，直到子序列元素为1个，才依次向上返回。比如L = [54, 26, 93, 17, 77, 31, 44, 55, 20]，则会先将 [54, 26, 93, 17] 归并排序好之后才会排右边的
+    # 特别注意：先递归左边的，直到子序列元素为1个，才依次向上返回。
+    # 比如L = [54, 26, 93, 17, 77, 31, 44, 55, 20]，则会先将 [54, 26, 93, 17] 归并排序好之后才会排右边的
+    left = merge_sort(L[:mid])
     right = merge_sort(L[mid:])
 
-    # 开始执行归并操作，将结果返回给上一层的 merge_sort() 调用栈
+    # 开始执行归并操作，将下一层结果返回给上一层的 merge_sort() 调用栈
     return merge(left, right)
 
 
@@ -33,7 +26,7 @@ def merge(left, right):
     merged = []  # 用来存放最终排好序的元素
 
     while left_index < len(left) and right_index < len(right):  # 一旦 left序列 或 right序列 中的元素比较完成，就退出循环
-        if left[left_index] < right[right_index]:
+        if left[left_index] < right[right_index]:  # left 是左分区,right是右分区
             merged.append(left[left_index])
             left_index += 1  # left序列的下标向右移动一位
         else:
