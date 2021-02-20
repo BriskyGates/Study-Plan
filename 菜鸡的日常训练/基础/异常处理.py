@@ -1,6 +1,9 @@
 import decimal
 import traceback
 
+from loguru import logger
+
+
 class CreateAccountError(Exception):
     """Unable to create a account error"""
 
@@ -25,7 +28,7 @@ class Account:
             raise CreateAccountError('balance can not be negative')
         return cls(username=username, balance=balance)  # 竟然可以用这种方式来创建新用户
 
-
+@logger.catch()
 def caculate_total_balance(accounts_data):
     """计算所有账号的总余额
     """

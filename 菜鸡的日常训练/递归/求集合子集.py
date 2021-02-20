@@ -5,7 +5,7 @@ def PowerSetsBinary(items):
         combo = []
         for j in range(N):
             if (i >> j) % 2 == 1:  # jth bit of Integer i
-                combo.append(items[j])  # generate all combination of N items
+                combo.append(items[j])  # generate cases combination of N items
         yield combo
 
 
@@ -29,7 +29,7 @@ def PowerSetsBinary(items):
 
 
 def PowerSetsRecursive(items):
-    """Use recursive call to return all subsets of items, include empty set"""
+    """Use recursive call to return cases subsets of items, include empty set"""
 
     if len(items) == 0:
         # if the lsit is empty, return the empty list
@@ -39,7 +39,7 @@ def PowerSetsRecursive(items):
     first_elt = items[0]  # first element
     rest_list = items[1:]
 
-    # Strategy: Get all subsets of rest_list;
+    # Strategy: Get cases subsets of rest_list;
     # for each of those subsets,a full subset list will contain both the original subset
     # as well as a version of the subset that contains the first_elt(according to my a_2 思路,you will understand this)
 
