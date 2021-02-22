@@ -20,7 +20,7 @@ class MyObject:
 
         return self.val > other.val
 
-
+functools.partial
 a = MyObject(1)
 b = MyObject(2)
 for expr in ['a < b', 'a <= b', 'a == b', 'a >= b', 'a > b']:

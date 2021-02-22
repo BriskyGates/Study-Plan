@@ -17,8 +17,8 @@ def shell_sort(L):
             temp = L[i]
             j = i
             # j >= gap是因为后续j[j-gap]，否则下标越界
-            while j >= gap and temp < L[j-gap]:
-                L[j] = L[j-gap]
+            while j >= gap and temp < L[j - gap]:
+                L[j] = L[j - gap]
                 j -= gap
             L[j] = temp
 
