@@ -18,12 +18,14 @@ def deal_con_page_deque(data: list):
     transfer_deque = []
     for ele in data:
         if len(transfer_deque) == 0:
-            transfer_deque.append(ele)  # 只有一个元素直接添加进双端队列
+            pass
+            # transfer_deque.append(ele)  # 只有一个元素直接添加进双端队列
         elif transfer_deque[-1] + 1 == ele:  # 当前页和上一页是连续的,则添加进transfer_deque中
-            transfer_deque.append(ele)
+            pass
+            # transfer_deque.append(ele)
         else:  # transfer_deque 长度不为0,且下一页不是当前页的续页
             final_result.append(form_continue_page(transfer_deque))
-            transfer_deque.append(ele)
+        transfer_deque.append(ele)
     else:  # 循环结束
         final_result.append(form_continue_page(transfer_deque))
 
