@@ -2,6 +2,7 @@
 from utils.single_link import SingleLinkedList
 
 data = [ 4, 5, 6]
+data=[2, 4, 5, 8]
 # b = [[2, 2], [4, 5], [8, 8]]
 
 # data = [1, 4, 5, 6, 8]
